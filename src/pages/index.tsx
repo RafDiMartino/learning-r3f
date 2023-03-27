@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from 'component/styles/Home.module.css'
+import classes from "component/styles/test.module.css"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -66,12 +67,15 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
+            <div className={classes.test}>
+              <h2 className={classes.test__nested}>
+                Docs <span>-&gt;</span>
+              </h2>
+              <p className={inter.className}>
+                Find in-depth information about Next.js features and&nbsp;API.
+              </p>
+            </div>
+            
           </a>
 
           <a
