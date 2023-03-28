@@ -13,7 +13,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <div className="flex-grow text-center">Homepage</div>
+      <div className="flex-grow text-center font-josefin">Homepage</div>
     </> 
   )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 
 export const Header = () => {
   return (
-    <header className='bg-indigo-500 w-full text-center'>Header</header>
+    <header className="bg-secondary text-accent w-full text-center font-playfair">Header</header>
   )
 }
+ 
