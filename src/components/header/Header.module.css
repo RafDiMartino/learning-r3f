@@ -1,45 +1,113 @@
-.menu-icon {
-    max-width: 1024px;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
+.burgerMenu {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 
-    i {
-        @apply bg-accent;
-        width: 30px;
-        height: 3px;
-        margin: 3px;
-        border-radius: 2px;
-        z-index: 10;
-        transition: all ease 0.3s; 
-    }
+  i {
+    @apply bg-accent;
 
-    .open:nth-child(1){
-        transform: rotate(45deg) translateY(13px);
-    }
-    
-    .open:nth-child(2){
-        opacity: 0;
-        transform: translateX(-60px);
-    }
-    
-    .open:nth-child(3){
-        transform: rotate(-45deg) translateY(-13px);
-    }
-    
-    .close:nth-child(1){
-        transform: rotate(0) translateY(0);
-    }
-    
-    .close:nth-child(2){
-        opacity: 1;
-    }
-    
-    .close:nth-child(3){
-        transform: rotate(0) translateY(0);
-    }
+    width: 30px;
+    height: 3px;
+    margin: 3px;
+    border-radius: 2px;
+    z-index: 10;
+    transition: all ease 0.3s;
+  }
+
+  .open:nth-child(1) {
+    transform: rotate(45deg) translateY(13px);
+  }
+
+  .open:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  .open:nth-child(3) {
+    transform: rotate(-45deg) translateY(-13px);
+  }
+
+  .close:nth-child(1) {
+    transform: rotate(0) translateY(0);
+  }
+
+  .close:nth-child(2) {
+    opacity: 1;
+  }
+
+  .close:nth-child(3) {
+    transform: rotate(0) translateY(0);
+  }
+
+  @screen sm {
+    display: none;
+  }
 }
 
-.links { 
+.desktopNavLinks {
+  display: none;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  ul > * {
+    padding: .5rem 1rem;
+  }
+
+  @screen sm {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+.mobileNavLinks {
+  @apply bg-secondary;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 5.2rem;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 5.2rem);
+  transition: all .3s ease;
+
+  ul {
+    li {
+      text-align: center;
+      margin: 0 0 0;
+      padding: 1.5rem 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      opacity: 1;
+      transition: opacity .3s ease 0.1s;
+    }
+  }
+
+  @screen sm {
     display: none;
+  }
+}
+
+.mobileNavLinksClosed {
+  position: absolute;
+  top: 5.2rem;
+  left: 0;
+  width: 100%;
+  height: 0;
+  transition: all 0.3s ease 0.1s;
+  overflow: hidden;
+
+  ul {
+    li {
+      opacity: 0;
+    }
+  }
 }
