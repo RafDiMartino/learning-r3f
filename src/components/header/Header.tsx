@@ -13,7 +13,7 @@ export const Header = () => {
   }
 
   return (
-    <header className="flex justify-center items-center bg-secondary text-accent w-full text-center font-playfair border-b-2 border-accent">
+    <header className="flex justify-center items-center bg-secondary text-accent w-full text-center font-fira border-b-2 border-accent">
       <div className="p-5 flex w-full items-center justify-between max-w-screen-2xl">
         <div className='py-2'>
           <svg width="25" height="25" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">

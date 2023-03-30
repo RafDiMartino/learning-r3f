@@ -14,7 +14,8 @@ module.exports = {
       },
       fontFamily: {
         josefin: ['var(--font-josefin-sans)'],
-        playfair: ['var(--font-playfair-display)']
+        playfair: ['var(--font-playfair-display)'],
+        fira: ["var(--font-fira-mono)"]
       }
     },
   },
