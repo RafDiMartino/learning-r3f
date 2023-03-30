@@ -1,0 +1,45 @@
+.footer {
+    @apply bg-secondary text-accent w-full mt-auto text-center font-josefin border-t-2 border-accent;
+    font-size: 0.8rem;
+    padding: 2.5rem;
+
+    .footerSocialMedia {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0 0 0;
+
+        & > :first-child {
+            padding-right: .5rem;
+        }
+    }
+
+    & > * {
+        align-self: baseline;
+    }
+
+    svg:hover > *{
+        fill: white;
+    } 
+
+    @screen sm {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        p {
+            padding-top: .3rem
+        }
+
+        & > p {
+            &:after {
+                content: "|"
+            }
+        }
+
+        .footerSocialMedia {
+            padding: 0 0 0 .5rem;
+            align-self: center;
+        }
+    }
+}
