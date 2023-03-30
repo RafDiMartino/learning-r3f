@@ -1,3 +1,15 @@
+.header {
+  @apply sticky top-0 flex grow-0 justify-center items-center bg-secondary text-accent w-full text-center font-josefin border-b-2 border-accent;
+}
+
+.headerWrapper {
+  @apply p-5 flex w-full items-center justify-between max-w-screen-2xl
+}
+
+.logoWrapper {
+  @apply p-2;
+}
+
 .burgerMenu {
   display: flex;
   flex-direction: column;
@@ -58,6 +70,17 @@
     padding: .5rem 1rem;
   }
 
+  ul li{
+    font-size: .9rem;
+    &:hover {
+      @apply text-white;
+    }
+  }
+
+  a {
+    padding-bottom: .2rem;
+  }
+
   @screen sm {
     display: flex;
     flex-direction: row;
@@ -91,6 +114,10 @@
     }
   }
 
+  a {
+    padding-bottom: .2rem;
+  }
+
   @screen sm {
     display: none;
   }
@@ -110,4 +137,9 @@
       opacity: 0;
     }
   }
+}
+
+.active {
+  @apply border-b-white border-b-2 text-white;
+  
 }

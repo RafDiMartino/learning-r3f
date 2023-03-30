@@ -21,7 +21,7 @@ export const firaMono = Fira_Mono({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${josefinSans.variable} ${playfairDisplay.variable} ${firaMono.variable} flex flex-col justify-center items-center h-screen`} >
+    <div className={`${josefinSans.variable} ${playfairDisplay.variable} ${firaMono.variable} flex flex-col justify-center items-center min-h-screen`} >
       <Layout>
       <Component {...pageProps} />
       </Layout>
