@@ -9,8 +9,12 @@
         align-items: center;
         padding: 1rem 0 0 0;
 
-        & > :first-child {
-            padding-right: .5rem;
+        & > *:not(:last-child) {
+            margin-right: 1.5rem;
+
+            @screen sm {
+                margin-right: .5rem;
+            }
         }
     }
 
@@ -18,8 +22,22 @@
         align-self: baseline;
     }
 
+    svg {
+        width: 30px;
+        height: 30px;
+        
+        @screen sm {
+            width: 16px;
+            height: 16px
+        }
+    }
+
     svg:hover > *{
         fill: white;
+        
+        path {
+            stroke: none;
+        }
     } 
 
     @screen sm {
