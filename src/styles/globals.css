@@ -6,6 +6,12 @@
 
 }
 
+
+a:focus-visible {
+    outline: 1px solid white;
+    border-radius: 2px;
+}
+
 @media (prefers-color-scheme: dark) {
   
 }
