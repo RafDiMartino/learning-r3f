@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 :root {
-
+    --color-primary: #343536;
+    --color-accent: #C09E6B;
+    --color-black: #000000;
+    --color-white: #FFFFFF;
 }
 
 
 a:focus-visible {
-    outline: 1px solid white;
+    outline: 1px solid var(--color-white);
     border-radius: 2px;
 }
 

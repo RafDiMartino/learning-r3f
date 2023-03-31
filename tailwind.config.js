@@ -6,11 +6,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        black: "#000000",
-        white: "#FFFFFF",
-        primary: "#272727",
-        secondary: "#343536",
-        accent: "#C09E6B",
+        "black": "var(--color-black)",
+        "white": "var(--color-white)",
+        "primary": "var(--color-primary)",
+        "accent": "var(--color-accent)",
       },
       fontFamily: {
         josefin: ['var(--font-josefin-sans)'],
