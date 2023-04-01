@@ -1,0 +1,46 @@
+.heroContainer {
+    @apply bg-primary;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.5rem;
+    min-height: calc(100vh - 5.063rem);
+    
+    @screen lg {
+        flex-direction: row;
+        justify-content: center;
+    } 
+}
+
+.headingWrapper {
+    
+
+    .heading {
+        @apply font-josefin text-white;
+        font-size: calc(1.3rem + 7vw);
+        text-align: left;
+        font-weight: 500;
+    }
+}
+
+.statementWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        color: var(--color-white);
+    }
+
+    .heroSocialIcons {
+        display: flex;
+
+        svg {
+            width: 40px;
+            height: auto;
+        }
+    }
+}
+

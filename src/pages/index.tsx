@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { Hero } from '../components/hero/Hero'
 
 export default function Home() {
 
@@ -11,7 +12,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
         
-      <div className="w-full text-center font-josefin ">Homepage</div>
+      {/* <div className="w-full text-center font-josefin ">Homepage</div> */}
+      <Hero />
     </> 
   )
 }
