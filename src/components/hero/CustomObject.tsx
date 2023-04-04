@@ -4,7 +4,6 @@ import * as THREE from "three"
 export const CustomObject = () => {
 
     const geometryRef: any = useRef()
-    console.log(geometryRef);
     
     const verticesCount = 10 * 3
 
@@ -16,7 +15,7 @@ export const CustomObject = () => {
         
         return positions
     
-    }, [verticesCount])
+    }, [])
 
     useEffect(() => {
         geometryRef.current.computeVertexNormals()
