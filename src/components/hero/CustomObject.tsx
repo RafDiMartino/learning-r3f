@@ -15,7 +15,7 @@ export const CustomObject = () => {
         
         return positions
     
-    }, [])
+    }, [verticesCount])
 
     useEffect(() => {
         geometryRef.current.computeVertexNormals()
