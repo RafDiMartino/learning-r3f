@@ -1,4 +1,4 @@
-import { OrbitControls, TransformControls, PivotControls, Html, Text } from '@react-three/drei'
+import { OrbitControls, TransformControls, PivotControls, Html, Text, Float } from '@react-three/drei'
 import { useRef } from 'react'
 import classes from "./Experience.module.css"
 import { josefinSans } from 'component/pages/_app'
@@ -51,17 +51,19 @@ export default function Experience(){
             <planeGeometry />
             <meshStandardMaterial color="greenyellow" />
         </mesh>
+        <Float speed={1} floatIntensity={1}>
+            <Text
+                font={'./bangers-v20-latin-regular.woff'}
+                fontSize={.5}
+                color='red'
+                position-y={ 2 }
+                maxWidth={ 1 }
+                textAlign='center'
+            >
+                I LOVE R3F
+            </Text>
+        </Float>
 
-        <Text
-            font={'./bangers-v20-latin-regular.woff'}
-            fontSize={.5}
-            color='red'
-            position-y={ 2 }
-            maxWidth={ 1 }
-            textAlign='center'
-        >
-            I LOVE R3F
-        </Text>
     </>
     )
 }
