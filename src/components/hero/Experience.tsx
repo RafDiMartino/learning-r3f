@@ -1,4 +1,4 @@
-import { OrbitControls, TransformControls, PivotControls, Html, Text, Float } from '@react-three/drei'
+import { OrbitControls, TransformControls, PivotControls, Html, Text, Float, MeshReflectorMaterial } from '@react-three/drei'
 import { useRef } from 'react'
 import classes from "./Experience.module.css"
 import { josefinSans } from 'component/pages/_app'
@@ -49,8 +49,16 @@ export default function Experience(){
 
         <mesh position-y={ - 1 } rotation-x={ - Math.PI * 0.5 } scale={ 10 }>
             <planeGeometry />
-            <meshStandardMaterial color="greenyellow" />
+            {/* <meshStandardMaterial color="greenyellow" /> */}
+            <MeshReflectorMaterial 
+                resolution={ 512 }
+                blur={ [1000, 1000] }
+                mixBlur={1}
+                mirror={ 1 }
+                color='red'
+            />
         </mesh>
+
         <Float speed={1} floatIntensity={1}>
             <Text
                 font={'./bangers-v20-latin-regular.woff'}
