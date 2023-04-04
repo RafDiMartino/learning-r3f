@@ -18,6 +18,16 @@ a:focus-visible {
     border-radius: 2px;
 }
 
+canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 199px);
+    overflow: hidden;
+    background-color: var(--color-primary);
+}
+
 @media (prefers-color-scheme: dark) {
   
 }
