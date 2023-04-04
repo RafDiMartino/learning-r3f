@@ -3,8 +3,9 @@ import * as THREE from "three"
 
 export const CustomObject = () => {
 
-    const geometryRef = useRef()
-
+    const geometryRef: any = useRef()
+    console.log(geometryRef);
+    
     const verticesCount = 10 * 3
 
     const positions = useMemo(() => {
