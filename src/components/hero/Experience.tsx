@@ -1,6 +1,9 @@
-import { OrbitControls, TransformControls, PivotControls, Html } from '@react-three/drei'
+import { OrbitControls, TransformControls, PivotControls, Html, Text } from '@react-three/drei'
 import { useRef } from 'react'
 import classes from "./Experience.module.css"
+import { josefinSans } from 'component/pages/_app'
+
+console.log(josefinSans.variable)
 
 export default function Experience(){
 
@@ -49,7 +52,16 @@ export default function Experience(){
             <meshStandardMaterial color="greenyellow" />
         </mesh>
 
-
+        <Text
+            font={'./bangers-v20-latin-regular.woff'}
+            fontSize={.5}
+            color='red'
+            position-y={ 2 }
+            maxWidth={ 1 }
+            textAlign='center'
+        >
+            I LOVE R3F
+        </Text>
     </>
     )
 }
