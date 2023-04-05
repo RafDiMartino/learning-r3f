@@ -1,65 +1,77 @@
-import { extend, useFrame, useThree, ReactThreeFiber } from '@react-three/fiber'
-import React, { useRef } from 'react'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { CustomObject } from './CustomObject'
-import * as THREE from "three"
+import { OrbitControls, TransformControls, PivotControls, Html, Text, Float, MeshReflectorMaterial } from '@react-three/drei'
+import { useRef } from 'react'
+import classes from "./Experience.module.css"
+import { josefinSans } from 'component/pages/_app'
+
+console.log(josefinSans.variable)
+
+export default function Experience(){
 
 
-extend({ OrbitControls })
+    const cube: any = useRef()
+    const sphere: any = useRef()
 
-declare global {
-    namespace JSX {
-      interface IntrinsicElements {
-        'orbitControls': ReactThreeFiber.Object3DNode<OrbitControls, typeof OrbitControls>;
-      }
-    }
-}
-
-export const Experience = () => {
-    
-    const { camera, gl} = useThree()
-
-    const cubeRef: any = useRef()
-    const groupRef: any = useRef()
-
-    useFrame((state, delta) => {
-        
-        // const angle = state.clock.elapsedTime
-        // state.camera.position.x = Math.sin(angle) * 8
-        // state.camera.position.z = Math.cos(angle) * 8
-        // state.camera.lookAt(0, 0, 0)
-        
-        cubeRef.current.rotation.y += delta;
-        // groupRef.current.rotation.y += delta;
-    })
-    
     return (
-        <>
-            <orbitControls args={ [ camera, gl.domElement ] }/>
-            
-            <directionalLight position={ [ 1, 2, 3 ] } intensity={ 1.5 }/>
+    <>
+        <OrbitControls makeDefault/>
+        <directionalLight position={ [ 1, 2, 3 ] } intensity={ 1.5 } />
+        <ambientLight intensity={ 0.5 } />
 
-            <ambientLight intensity={ 0.5 } />
-
-            <group ref={groupRef}>
-                <mesh position-x={-2} scale={ 1 }>
-                    {/* <sphereGeometry args={ [ 1.5, 32, 32 ] }/> //radius, widthSegments, heightSegment */}
-                    <sphereGeometry />
-                    <meshStandardMaterial color="orange" wireframe={false} />
-                </mesh>
-
-                <mesh ref={ cubeRef } rotation-y={Math.PI * 0.25} position-x={2} scale={1.5}>
-                    <boxGeometry  />
-                    <meshStandardMaterial color="purple" wireframe={false} />
-                </mesh>
-            </group>
-
-            <mesh position-y={-1} rotation-x={- Math.PI * 0.5} scale={10}>
-                <planeGeometry />
-                <meshStandardMaterial color="greenyellow" wireframe={false} side={THREE.DoubleSide} />
+        <PivotControls 
+            anchor={ [0, 0, 0] } 
+            depthTest={false}
+            lineWidth={ 4 }
+            axisColors={ [ "#9381FF", "#ff4d6d", "#7ae582"] }
+            // scale={ 100 }
+            // fixed={ true }
+        >
+            <mesh ref={ sphere } position-x={ - 2 }>
+                <sphereGeometry />
+                <meshStandardMaterial color="orange" />
+                <Html 
+                    position={[ 1, 1, 0]}
+                    wrapperClass={classes.label}
+                    center
+                    distanceFactor={6}
+                    // occlude={ [ sphere, cube ] }
+                >
+                    Sphere 👍
+                </Html>
             </mesh>
+        </PivotControls>
 
-            <CustomObject />
-        </>
+
+        <mesh ref={ cube } position-x={ 2 } scale={ 1.5 }>
+            <boxGeometry />
+            <meshStandardMaterial color="mediumpurple" />
+        </mesh>
+        <TransformControls object={cube} mode='translate'/>
+
+        <mesh position-y={ - 1 } rotation-x={ - Math.PI * 0.5 } scale={ 10 }>
+            <planeGeometry />
+            {/* <meshStandardMaterial color="greenyellow" /> */}
+            <MeshReflectorMaterial 
+                resolution={ 512 }
+                blur={ [1000, 1000] }
+                mixBlur={1}
+                mirror={ 1 }
+                color='red'
+            />
+        </mesh>
+
+        <Float speed={1} floatIntensity={1}>
+            <Text
+                font={'./bangers-v20-latin-regular.woff'}
+                fontSize={.5}
+                color='red'
+                position-y={ 2 }
+                maxWidth={ 1 }
+                textAlign='center'
+            >
+                I LOVE R3F
+            </Text>
+        </Float>
+
+    </>
     )
 }
