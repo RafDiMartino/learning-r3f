@@ -1,77 +1,67 @@
-import { OrbitControls, TransformControls, PivotControls, Html, Text, Float, MeshReflectorMaterial } from '@react-three/drei'
-import { useRef } from 'react'
-import classes from "./Experience.module.css"
-import { josefinSans } from 'component/pages/_app'
+import { OrbitControls } from '@react-three/drei'
+import { useControls, button } from 'leva'
+import { Perf } from 'r3f-perf'
 
-console.log(josefinSans.variable)
+export default function Experience()
+{
 
-export default function Experience(){
+    const { perfVisible } = useControls({
+        perfVisible: true
+    })
 
+    const { position, color, visible } = useControls("sphere", {
+        position: {
+            value: { x: -2, y: 0},
+            // min: - 4,
+            // max: 4,
+            step: 0.01,
+            joystick: "invertY"
+        },
+        color: "#ff0000",
+        visible: true,
+        myInterval: {
+            min: 0,
+            max: 10,
+            value: [ 4, 5 ]
+        },
+        clickMe: button(() => { console.log("clicked") }),
+        choice: { options: ["a", "b", "c"] } 
 
-    const cube: any = useRef()
-    const sphere: any = useRef()
+    })
+ 
+    const { scale } = useControls("cube", {
+        scale: {
+            value: 1.5,
+            step: 0.01,
+            min: 0,
+            max: 5
+        }
+    })
+    
 
-    return (
-    <>
-        <OrbitControls makeDefault/>
+    return <>
+        { perfVisible && <Perf position="top-left" />}
+        
+
+        <OrbitControls makeDefault />
+
         <directionalLight position={ [ 1, 2, 3 ] } intensity={ 1.5 } />
         <ambientLight intensity={ 0.5 } />
 
-        <PivotControls 
-            anchor={ [0, 0, 0] } 
-            depthTest={false}
-            lineWidth={ 4 }
-            axisColors={ [ "#9381FF", "#ff4d6d", "#7ae582"] }
-            // scale={ 100 }
-            // fixed={ true }
-        >
-            <mesh ref={ sphere } position-x={ - 2 }>
-                <sphereGeometry />
-                <meshStandardMaterial color="orange" />
-                <Html 
-                    position={[ 1, 1, 0]}
-                    wrapperClass={classes.label}
-                    center
-                    distanceFactor={6}
-                    // occlude={ [ sphere, cube ] }
-                >
-                    Sphere 👍
-                </Html>
-            </mesh>
-        </PivotControls>
+        <mesh position={ [ position.x, position.y, 0 ] } visible={visible}>
+            <sphereGeometry />
+            <meshStandardMaterial color={color} />
+        </mesh>
 
-
-        <mesh ref={ cube } position-x={ 2 } scale={ 1.5 }>
+        <mesh position-x={ 2 } scale={ scale }>
             <boxGeometry />
             <meshStandardMaterial color="mediumpurple" />
         </mesh>
-        <TransformControls object={cube} mode='translate'/>
 
         <mesh position-y={ - 1 } rotation-x={ - Math.PI * 0.5 } scale={ 10 }>
             <planeGeometry />
-            {/* <meshStandardMaterial color="greenyellow" /> */}
-            <MeshReflectorMaterial 
-                resolution={ 512 }
-                blur={ [1000, 1000] }
-                mixBlur={1}
-                mirror={ 1 }
-                color='red'
-            />
+            <meshStandardMaterial color="greenyellow" />
         </mesh>
 
-        <Float speed={1} floatIntensity={1}>
-            <Text
-                font={'./bangers-v20-latin-regular.woff'}
-                fontSize={.5}
-                color='red'
-                position-y={ 2 }
-                maxWidth={ 1 }
-                textAlign='center'
-            >
-                I LOVE R3F
-            </Text>
-        </Float>
-
     </>
-    )
 }
