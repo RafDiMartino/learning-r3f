@@ -20,6 +20,7 @@ export const Hero3JS = () => {
   <>
     {/* <Leva collapsed/> */}
     <Canvas
+      shadows
       camera={{
         fov: 45,
         near: 0.1,
@@ -28,7 +29,7 @@ export const Hero3JS = () => {
       }}
       // onCreated={created}
     >
-      <color args={ [ 'ivory' ] } attach='background' />
+      <color args={ [ 'black' ] } attach='background' />
       <Experience />
     </Canvas>
   </>
