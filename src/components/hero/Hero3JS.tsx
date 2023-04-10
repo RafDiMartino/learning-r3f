@@ -1,10 +1,14 @@
 import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import Experience from './Experience'
+import { Leva } from 'leva'
 
 export const Hero3JS = () => {
 
   return (
+  
+  <>
+    <Leva collapsed/>
     <Canvas
       camera={{
         fov: 45,
@@ -15,5 +19,7 @@ export const Hero3JS = () => {
     >
       <Experience />
     </Canvas>
+  </>
+
   )
 }
