@@ -1,11 +1,20 @@
 import { useFrame } from '@react-three/fiber'
-import { OrbitControls, useHelper, BakeShadows } from '@react-three/drei'
+import { OrbitControls, useHelper, BakeShadows, SoftShadows } from '@react-three/drei'
 import { useRef } from 'react'
 import { Perf } from 'r3f-perf'
 import * as THREE from 'three'
 
+// softShadows({
+//     frustum: 3.75,
+//     size: 0.005,
+//     near: 9.5,
+//     samples: 17,
+//     rings: 11
+// })
+
 export default function Experience()
 {
+    console.log(SoftShadows)
     const directionalLight: any = useRef()
     useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
 
@@ -18,7 +27,13 @@ export default function Experience()
 
     return <>
         
-        <BakeShadows />
+        {/* <BakeShadows /> */}
+        <SoftShadows 
+            size={25} 
+            focus={50}
+            samples={17} 
+
+        />
 
         <Perf position="top-left" />
 
