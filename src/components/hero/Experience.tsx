@@ -1,5 +1,5 @@
 import { useFrame } from '@react-three/fiber'
-import { OrbitControls, useHelper, BakeShadows, SoftShadows } from '@react-three/drei'
+import { OrbitControls, useHelper, BakeShadows, SoftShadows, AccumulativeShadows, RandomizedLight } from '@react-three/drei'
 import { useRef } from 'react'
 import { Perf } from 'r3f-perf'
 import * as THREE from 'three'
@@ -16,24 +16,44 @@ export default function Experience()
 {
     console.log(SoftShadows)
     const directionalLight: any = useRef()
-    useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
+    // useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
 
     const cube: any = useRef()
     
     useFrame((state, delta) =>
     {
+        const time = state.clock.elapsedTime
+        cube.current.position.x = 2 + Math.sin(time)
         cube.current.rotation.y += delta * 0.2
     })
 
     return <>
         
         {/* <BakeShadows /> */}
-        <SoftShadows 
+        {/* <SoftShadows 
             size={25} 
             focus={50}
             samples={17} 
+        /> */}
 
-        />
+        <AccumulativeShadows
+            position={ [0, - 0.99, 0] }
+            scale={ 10 }
+            color='#316d39'
+            opacity={0.9}
+            frames={ Infinity }
+            temporal
+            blend={100}
+        >
+            <RandomizedLight 
+                position={ [ 1, 2, 3 ] }
+                amount={8}
+                radius={1}
+                intensity={1}
+                ambient={0.5}
+                bias={0.001}
+            />
+        </AccumulativeShadows>
 
         <Perf position="top-left" />
 
@@ -64,7 +84,7 @@ export default function Experience()
             <meshStandardMaterial color="mediumpurple" />
         </mesh>
 
-        <mesh receiveShadow position-y={ - 1 } rotation-x={ - Math.PI * 0.5 } scale={ 10 }>
+        <mesh position-y={ - 1 } rotation-x={ - Math.PI * 0.5 } scale={ 10 }>
             <planeGeometry />
             <meshStandardMaterial color="greenyellow" />
         </mesh>
