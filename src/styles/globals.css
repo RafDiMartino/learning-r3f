@@ -10,6 +10,7 @@
     --color-accent: #C09E6B;
     --color-black: #000000;
     --color-white: #FFFFFF;
+    /*background-color: var(--color-primary);*/
 }
 
 
@@ -25,7 +26,7 @@ canvas {
     width: 100%;
     height: calc(100vh - 199px);
     overflow: hidden;
-    background-color: var(--color-primary);
+    
 }
 
 @media (prefers-color-scheme: dark) {

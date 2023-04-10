@@ -1,59 +1,36 @@
-import { OrbitControls } from '@react-three/drei'
-import { useControls, button } from 'leva'
+import { useFrame } from '@react-three/fiber'
+import { OrbitControls, useHelper } from '@react-three/drei'
+import { useRef } from 'react'
 import { Perf } from 'r3f-perf'
+import * as THREE from 'three'
 
 export default function Experience()
 {
+    const directionalLight: any = useRef()
+    useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
 
-    const { perfVisible } = useControls({
-        perfVisible: true
-    })
-
-    const { position, color, visible } = useControls("sphere", {
-        position: {
-            value: { x: -2, y: 0},
-            // min: - 4,
-            // max: 4,
-            step: 0.01,
-            joystick: "invertY"
-        },
-        color: "#ff0000",
-        visible: true,
-        myInterval: {
-            min: 0,
-            max: 10,
-            value: [ 4, 5 ]
-        },
-        clickMe: button(() => { console.log("clicked") }),
-        choice: { options: ["a", "b", "c"] } 
-
-    })
- 
-    const { scale } = useControls("cube", {
-        scale: {
-            value: 1.5,
-            step: 0.01,
-            min: 0,
-            max: 5
-        }
-    })
+    const cube: any = useRef()
     
+    useFrame((state, delta) =>
+    {
+        cube.current.rotation.y += delta * 0.2
+    })
 
     return <>
-        { perfVisible && <Perf position="top-left" />}
-        
+
+        <Perf position="top-left" />
 
         <OrbitControls makeDefault />
 
-        <directionalLight position={ [ 1, 2, 3 ] } intensity={ 1.5 } />
+        <directionalLight ref={ directionalLight } position={ [ 1, 2, 3 ] } intensity={ 1.5 } />
         <ambientLight intensity={ 0.5 } />
 
-        <mesh position={ [ position.x, position.y, 0 ] } visible={visible}>
+        <mesh position-x={ - 2 }>
             <sphereGeometry />
-            <meshStandardMaterial color={color} />
+            <meshStandardMaterial color="orange" />
         </mesh>
 
-        <mesh position-x={ 2 } scale={ scale }>
+        <mesh ref={ cube } position-x={ 2 } scale={ 1.5 }>
             <boxGeometry />
             <meshStandardMaterial color="mediumpurple" />
         </mesh>
