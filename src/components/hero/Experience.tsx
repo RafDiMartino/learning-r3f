@@ -5,7 +5,7 @@ import { Perf } from 'r3f-perf'
 
 export default function Experience()
 {
-    const cube = useRef()
+    const cube: any = useRef()
     
     useFrame((state, delta) =>
     {
