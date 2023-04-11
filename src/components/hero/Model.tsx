@@ -1,4 +1,4 @@
-import { useGLTF } from '@react-three/drei'
+import { useGLTF, Clone } from '@react-three/drei'
 import React from 'react'
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 // import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
@@ -22,7 +22,12 @@ export default function Model() {
     const model = useGLTF('/hamburger.glb')
 
     return (
-        <primitive object={ model.scene } scale={ 0.35 } />
+        // <primitive object={ model.scene } scale={ 0.35 } />
+        <>
+            <Clone object={model.scene} scale={0.35} position-x={-4}/>
+            <Clone object={model.scene} scale={0.35} position-x={0}/>
+            <Clone object={model.scene} scale={0.35} position-x={4}/>
+        </>
     )
 }
 
