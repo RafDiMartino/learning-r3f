@@ -29,7 +29,7 @@ export const Hero3JS = () => {
       }}
       // onCreated={created}
     >
-      <color args={ [ 'black' ] } attach='background' />
+      <color args={ [ 'ivory' ] } attach='background' />
       <Experience />
     </Canvas>
   </>
