@@ -12,7 +12,9 @@ export default function Experience() {
     // const [ torusGeometry, setTorusGeometry ] = useState()
     // const [ material, setMaterial ] = useState()
 
-    const donutsGroup = useRef()
+    // const donutsGroup = useRef()
+
+    const donuts = useRef([])
 
     const [matcapTexture] = useMatcapTexture('36220C_C6C391_8C844A_8B7B4C', 256)
 
@@ -27,8 +29,11 @@ export default function Experience() {
 
 
     useFrame((state, delta) => {
-        for (const donut of donutsGroup.current.children) {
-            
+        // for (const donut of donutsGroup.current.children) {
+        //     donut.rotation.y += delta * 0.1;
+        // }
+
+        for (const donut of donuts.current) {
             donut.rotation.y += delta * 0.1;
         }
     })
@@ -58,9 +63,10 @@ export default function Experience() {
                 {/* <meshMatcapMaterial matcap={ matcapTexture} /> */}
             </Text3D>
         </Center>
-        <group ref={donutsGroup}>
+        {/* <group ref={donutsGroup}> */}
             {[...Array(100)].map((value, i) =>
                 <mesh
+                    ref={(element) => donuts.current[i] = element}
                     key={i}
                     geometry={torusGeometry}
                     material={material}
@@ -77,7 +83,7 @@ export default function Experience() {
                     ]}
                 />
             )}
-        </group>
+        {/* </group> */}
 
 
         {/* <mesh>
