@@ -17,7 +17,7 @@ export default function Experience() {
 
         matcapTexture.encoding = THREE.sRGBEncoding
         material.needsUpdate = true
-        
+
         material.matcap = matcapTexture
         material.needsUpdate = true
     }, [])
@@ -32,7 +32,7 @@ export default function Experience() {
 
         <Center>
             <Text3D 
-                font='./fonts/helvetiker_regular.typeface.json'
+                font='./fonts/Josefin Sans Thin_Regular.json'
                 size={0.5}
                 height={0.2}
                 curveSegments={12}
