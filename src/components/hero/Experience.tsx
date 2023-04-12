@@ -1,36 +1,31 @@
-import { OrbitControls } from '@react-three/drei'
+import { useMatcapTexture, Center, OrbitControls, Text3D } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
-import Model from './Model'
-import { Suspense } from 'react'
-import Placeholder from './Placeholder'
-import Hamburger from './Hamburger'
-import Fox from './Fox'
 
 export default function Experience() {
 
-
+    const [matcapTexture] = useMatcapTexture('36220C_C6C391_8C844A_8B7B4C', 256)
 
     return <>
 
         <Perf position="top-left" />
-
         <OrbitControls makeDefault />
 
-        <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} shadow-normalBias={0.04} />
-        <ambientLight intensity={0.5} />
+        <Center>
+            <Text3D 
+                font='./fonts/helvetiker_regular.typeface.json'
+                size={0.5}
+                height={0.2}
+                curveSegments={12}
+                bevelEnabled
+                bevelThickness={0.02}
+                bevelSize={0.02}
+                bevelOffset={0}
+                bevelSegments={5}
+            >
+                RAF DI MARTINO
+                <meshMatcapMaterial matcap={ matcapTexture} />
+            </Text3D>
 
-        <mesh receiveShadow position-y={- 1} rotation-x={- Math.PI * 0.5} scale={10}>
-            <planeGeometry />
-            <meshStandardMaterial color="greenyellow" />
-        </mesh>
-        <Suspense
-            fallback={
-                <Placeholder position-y={0.5} scale={[2,3,2]}/>
-            }
-        >
-            {/* <Model /> */}
-            {/* <Hamburger scale={0.35} /> */}
-        </Suspense>
-        <Fox />
+        </Center>
     </>
 }
