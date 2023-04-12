@@ -20,7 +20,7 @@ export const Hero3JS = () => {
   <>
     {/* <Leva collapsed/> */}
     <Canvas
-      // shadows
+      shadows
       camera={{
         fov: 45,
         near: 0.1,
