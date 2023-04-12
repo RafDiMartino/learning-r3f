@@ -1,7 +1,8 @@
 import { useMatcapTexture, Center, OrbitControls, Text3D } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import * as THREE from 'three'
+import { useFrame } from '@react-three/fiber'
 
 const torusGeometry = new THREE.TorusGeometry(1, 0.6, 16, 32)
 const material = new THREE.MeshMatcapMaterial()
@@ -10,6 +11,8 @@ export default function Experience() {
 
     // const [ torusGeometry, setTorusGeometry ] = useState()
     // const [ material, setMaterial ] = useState()
+
+    const donutsGroup = useRef()
 
     const [matcapTexture] = useMatcapTexture('36220C_C6C391_8C844A_8B7B4C', 256)
 
@@ -22,6 +25,14 @@ export default function Experience() {
         material.needsUpdate = true
     }, [])
 
+
+    useFrame((state, delta) => {
+        for (const donut of donutsGroup.current.children) {
+            
+            donut.rotation.y += delta * 0.1;
+        }
+    })
+
     return <>
 
         <Perf position="top-left" />
@@ -31,7 +42,7 @@ export default function Experience() {
         <meshMatcapMaterial ref={setMaterial} matcap={ matcapTexture} /> */}
 
         <Center>
-            <Text3D 
+            <Text3D
                 font='./fonts/Josefin Sans Thin_Regular.json'
                 size={0.5}
                 height={0.2}
@@ -47,25 +58,27 @@ export default function Experience() {
                 {/* <meshMatcapMaterial matcap={ matcapTexture} /> */}
             </Text3D>
         </Center>
+        <group ref={donutsGroup}>
+            {[...Array(100)].map((value, i) =>
+                <mesh
+                    key={i}
+                    geometry={torusGeometry}
+                    material={material}
+                    position={[
+                        (Math.random() - 0.5) * 10,
+                        (Math.random() - 0.5) * 10,
+                        (Math.random() - 0.5) * 10,
+                    ]}
+                    scale={0.2 + Math.random() * 0.2}
+                    rotation={[
+                        Math.random() * Math.PI,
+                        Math.random() * Math.PI,
+                        0
+                    ]}
+                />
+            )}
+        </group>
 
-        { [...Array(100)].map((value, i) =>
-            <mesh 
-                key={i}
-                geometry={torusGeometry}
-                material={material}
-                position={[
-                    (Math.random() - 0.5) * 10,
-                    (Math.random() - 0.5) * 10,
-                    (Math.random() - 0.5) * 10,
-                ]}
-                scale={0.2 + Math.random() * 0.2}
-                rotation={[
-                    Math.random() * Math.PI,
-                    Math.random() * Math.PI,
-                    0
-                ]}
-            />
-        )}
 
         {/* <mesh>
             <torusGeometry args={[1, 0.6, 16, 32]}/>
