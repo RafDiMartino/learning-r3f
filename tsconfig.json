@@ -18,6 +18,6 @@
       "component/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/hero/Hamburger.jsx", "src/components/hero/Fox.jsx"],
   "exclude": ["node_modules"]
 }
