@@ -25,11 +25,12 @@ export const Hero3JS = () => {
         fov: 45,
         near: 0.1,
         far: 200,
-        position: [ - 4, 3, 6]
+        // position: [ - 4, 3, 6]
+        position: [ 4, - 2, 6 ]
       }}
       // onCreated={created}
     >
-      <color args={ [ 'ivory' ] } attach='background' />
+      <color args={ [ 'black' ] } attach='background' />
       <Experience />
     </Canvas>
   </>
