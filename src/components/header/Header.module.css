@@ -1,5 +1,8 @@
 .header {
-  @apply sticky top-0 flex justify-center items-center bg-primary text-accent w-full text-center font-josefin border-b-2 border-accent;
+  @apply sticky top-0 z-10 flex justify-center items-center bg-primary text-accent w-full text-center font-josefin border-b-2 border-accent;
+  @screen sm {
+    @apply z-0
+  }
 }
 
 .headerWrapper {

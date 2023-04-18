@@ -10,7 +10,7 @@ export const Layout = ({ children }: Props) => {
   return (
     <>
       <Header />
-      <main className="flex flex-col w-full grow">{children}</main>
+      <main className="flex flex-col w-full grow z-0">{children}</main>
       <Footer />
     </>
   );
