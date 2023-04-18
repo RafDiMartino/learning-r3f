@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Hero } from 'component/components/hero/Hero'
 import { Hero3JS } from 'component/components/hero/Hero3JS'
+import { Portal } from 'component/components/portal/Portal'
 
 export default function Home() {
 
