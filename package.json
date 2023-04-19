@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-three/drei": "^9.50.3",
     "@react-three/fiber": "8.9",
+    "@react-three/postprocessing": "^2.7.1",
     "@types/node": "18.15.10",
     "@types/react": "18.0.29",
     "@types/react-dom": "18.0.11",
@@ -19,6 +20,7 @@
     "glslify-loader": "^2.0.0",
     "leva": "^0.9.34",
     "next": "13.2.4",
+    "postprocessing": "^6.30.2",
     "r3f-perf": "^7.1.2",
     "raw-loader": "^4.0.2",
     "react": "18.2.0",
