@@ -37,6 +37,7 @@ export const Header = () => {
             <li onClick={toggleMenu}><Link href="/" className={currentRoute === "/" ? classes.active : ""}>HOME</Link></li>
             <li onClick={toggleMenu}><Link href="/portal-scene" className={currentRoute === "/portal-scene" ? classes.active : ""}>PORTAL</Link></li>
             <li onClick={toggleMenu}><Link href="/other" className={currentRoute === "/other" ? classes.active : ""}>OTHER</Link></li>
+            <li onClick={toggleMenu}><Link href="/simple-portfolio" className={currentRoute === "/simple-portfolio" ? classes.active : ""}>PORTFOLIO</Link></li>
             <li onClick={toggleMenu}><Link href="/physics" className={currentRoute === "/physics" ? classes.active : ""}>PHYSICS</Link></li>
           </ul>
         </nav>
@@ -45,6 +46,7 @@ export const Header = () => {
             <li><Link href="/" className={currentRoute === "/" ? classes.active : ""}>HOME</Link></li>
             <li><Link href="/portal-scene" className={currentRoute === "/portal-scene" ? classes.active : ""}>PORTAL</Link></li>
             <li><Link href="/other" className={currentRoute === "/other" ? classes.active : ""}>OTHER</Link></li>
+            <li><Link href="/simple-portfolio" className={currentRoute === "/simple-portfolio" ? classes.active : ""}>PORTFOLIO</Link></li>
             <li><Link href="/physics" className={currentRoute === "/physics" ? classes.active : ""}>PHYSICS</Link></li>
           </ul>
         </nav>
