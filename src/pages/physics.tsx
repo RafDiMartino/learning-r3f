@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {Portal} from "component/components/portal/Portal"
+import {Physic} from "component/components/physics/Physic"
 
 export default function Physics() {
   return (
@@ -11,7 +11,7 @@ export default function Physics() {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      {/* <Portal /> */}
+      <Physic />
     </> 
   )
 }

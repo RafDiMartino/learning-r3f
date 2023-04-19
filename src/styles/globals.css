@@ -26,7 +26,15 @@ canvas {
     width: 100%;
     height: calc(100vh - 199px);
     overflow: hidden;
-    
+    touch-action: none;
+}
+
+.htmlScreen iframe{
+    width: 1024px;
+    height: 670px;
+    border: none;
+    border-radius: 20px;
+    background-color: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
