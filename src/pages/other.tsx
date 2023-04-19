@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { MouseEvents } from 'component/components/mouse-events/MouseEvents'
 
-export default function Home() {
+export default function Other() {
   return (
     <>
       <Head>

@@ -35,15 +35,17 @@ export const Header = () => {
         <nav className={openMenu ? classes.mobileNavLinks : classes.mobileNavLinksClosed}>
           <ul>
             <li onClick={toggleMenu}><Link href="/" className={currentRoute === "/" ? classes.active : ""}>HOME</Link></li>
-            <li onClick={toggleMenu}><Link href="/projects" className={currentRoute === "/projects" ? classes.active : ""}>PROJECTS</Link></li>
-            <li onClick={toggleMenu}><Link href="/contacts" className={currentRoute === "/contacts" ? classes.active : ""}>CONTACTS</Link></li>
+            <li onClick={toggleMenu}><Link href="/portal-scene" className={currentRoute === "/portal-scene" ? classes.active : ""}>PORTAL</Link></li>
+            <li onClick={toggleMenu}><Link href="/other" className={currentRoute === "/other" ? classes.active : ""}>OTHER</Link></li>
+            <li onClick={toggleMenu}><Link href="/physics" className={currentRoute === "/physics" ? classes.active : ""}>PHYSICS</Link></li>
           </ul>
         </nav>
         <nav className={classes.desktopNavLinks}>
           <ul>
             <li><Link href="/" className={currentRoute === "/" ? classes.active : ""}>HOME</Link></li>
-            <li><Link href="/projects" className={currentRoute === "/projects" ? classes.active : ""}>PROJECTS</Link></li>
-            <li><Link href="/contacts" className={currentRoute === "/contacts" ? classes.active : ""}>CONTACTS</Link></li>
+            <li><Link href="/portal-scene" className={currentRoute === "/portal-scene" ? classes.active : ""}>PORTAL</Link></li>
+            <li><Link href="/other" className={currentRoute === "/other" ? classes.active : ""}>OTHER</Link></li>
+            <li><Link href="/physics" className={currentRoute === "/physics" ? classes.active : ""}>PHYSICS</Link></li>
           </ul>
         </nav>
       </div>

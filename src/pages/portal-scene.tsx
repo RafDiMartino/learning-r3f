@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import {Portal} from "component/components/portal/Portal"
 
-export default function Home() {
+export default function PortalScene() {
   return (
     <>
       <Head>
