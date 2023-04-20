@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Game } from 'component/components/game/game'
+import { Game } from 'component/components/game/Game'
 
 export default function GameSection() {
   return (
