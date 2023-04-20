@@ -39,6 +39,7 @@ export const Header = () => {
             <li onClick={toggleMenu}><Link href="/other" className={currentRoute === "/other" ? classes.active : ""}>OTHER</Link></li>
             <li onClick={toggleMenu}><Link href="/simple-portfolio" className={currentRoute === "/simple-portfolio" ? classes.active : ""}>PORTFOLIO</Link></li>
             <li onClick={toggleMenu}><Link href="/physics" className={currentRoute === "/physics" ? classes.active : ""}>PHYSICS</Link></li>
+            <li onClick={toggleMenu}><Link href="/game-section" className={currentRoute === "/game-section" ? classes.active : ""}>GAME</Link></li>
           </ul>
         </nav>
         <nav className={classes.desktopNavLinks}>
@@ -48,6 +49,7 @@ export const Header = () => {
             <li><Link href="/other" className={currentRoute === "/other" ? classes.active : ""}>OTHER</Link></li>
             <li><Link href="/simple-portfolio" className={currentRoute === "/simple-portfolio" ? classes.active : ""}>PORTFOLIO</Link></li>
             <li><Link href="/physics" className={currentRoute === "/physics" ? classes.active : ""}>PHYSICS</Link></li>
+            <li><Link href="/game-section" className={currentRoute === "/game-section" ? classes.active : ""}>GAME</Link></li>
           </ul>
         </nav>
       </div>
