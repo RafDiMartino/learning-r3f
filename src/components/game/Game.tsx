@@ -2,6 +2,7 @@ import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import GameExperience from './GameExperience'
 import { KeyboardControls } from "@react-three/drei"
+import Interface from './Interface'
 
 export const Game = () => {
 
@@ -28,6 +29,7 @@ export const Game = () => {
 				>
 					<GameExperience />
 				</Canvas>
+				<Interface />
 			</KeyboardControls>
 		</>
 
