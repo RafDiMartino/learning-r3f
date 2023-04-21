@@ -47,8 +47,6 @@ export function BlockSpinner({ position = [0, 0, 0] }) {
     const obstacle = useRef()
     const [ speed ] = useState(() => (Math.random() + 0.2) * (Math.random() < 0.5 ? -1 : 1))
 
-    console.log(speed);
-
     useFrame((state) => {
       const time = state.clock.getElapsedTime()
       const rotation = new THREE.Quaternion()
@@ -74,8 +72,6 @@ export function BlockLimbo({ position = [0, 0, 0] }) {
     const obstacle = useRef()
     const [ timeOffset ] = useState(() => Math.random() * Math.PI * 2)
 
-    console.log(timeOffset);
-
     useFrame((state) => {
         const time = state.clock.getElapsedTime()
         const y = Math.sin(time + timeOffset) + 1.15
@@ -99,8 +95,6 @@ export function BlockAxe({ position = [0, 0, 0] }) {
 
     const obstacle = useRef()
     const [ timeOffset ] = useState(() => Math.random() * Math.PI * 2)
-
-    console.log(timeOffset);
 
     useFrame((state) => {
         const time = state.clock.getElapsedTime()
